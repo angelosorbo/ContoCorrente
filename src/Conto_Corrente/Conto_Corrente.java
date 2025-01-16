@@ -1,11 +1,11 @@
 package Conto_Corrente;
 
 class Conto_Corrente {
-    String cognome;
+    String cognome1;
     String nome;
     int saldo;
     public Conto_Corrente(String cog, String nom) {
-        cognome = cog;
+        cognome1 = cog;
         nome = nom;
         saldo = 0;
     }
@@ -17,7 +17,7 @@ class Conto_Corrente {
        saldo -= cifra;
     }
     synchronized void stampa_saldo() {
-       System.out.println("Saldo del sig. " + cognome + " " + nome + " = " + saldo);
+       System.out.println("Saldo del sig. " + cognome1 + " " + nome + " = " + saldo);
     }
 }
 
@@ -36,7 +36,7 @@ class Prelievo implements Runnable {
             Thread.sleep((int)(Math.random()*10000));    // attesa fittizia
         } catch (Exception e) {};
         conto_corrente.sottrai(cifra);
-        System.out.println("Prelievo del sig. " + conto_corrente.cognome +
+        System.out.println("Prelievo del sig. " + conto_corrente.cognome1 +
                 ": Euro " + cifra + " Causale: " + motivo);
         conto_corrente.stampa_saldo();
     }
@@ -57,7 +57,7 @@ class Versamento implements Runnable {
             Thread.sleep((int)(Math.random()*10000));    // attesa fittizia
         } catch (Exception e) {};
         conto_corrente.aggiungi(cifra);
-        System.out.println("Versamento del sig. " + conto_corrente.cognome +
+        System.out.println("Versamento del sig. " + conto_corrente.cognome1 +
                 ": Euro " + cifra + " Causale: " + motivo);
         conto_corrente.stampa_saldo();
     }
